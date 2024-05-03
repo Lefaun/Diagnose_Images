@@ -31,7 +31,7 @@ data_transforms = {
     ]),
 }
 st.title("Sistema de Classificação Diagnóstico")
-data_dir = url('https://drive.google.com/drive/folders/1O6ZimdPrpby5opBy8WtavAr6X7Hp2xdU?usp=drive_link')
+data_dir = ('https://drive.google.com/drive/folders/1O6ZimdPrpby5opBy8WtavAr6X7Hp2xdU?usp=drive_link')
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
