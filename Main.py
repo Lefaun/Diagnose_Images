@@ -14,7 +14,7 @@ import os
 from PIL import Image
 from tempfile import TemporaryDirectory
 x-goog-project-id="subtle-harmony-422215-v3"
-service-391033506755@gs-project-accounts.iam.gserviceaccount.com
+
 
 cudnn.benchmark = True
 plt.ion()   # interactive mode
