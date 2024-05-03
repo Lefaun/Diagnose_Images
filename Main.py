@@ -31,8 +31,8 @@ data_transforms = {
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
 }
-st.title("Sistema de Classificação Diagnóstico")
-data_dir = 'https://drive.google.com/drive/folders/1O6ZimdPrpby5opBy8WtavAr6X7Hp2xdU?usp=sharing'
+#st.title("Sistema de Classificação Diagnóstico")
+data_dir = 'https://drive.google.com/drive/folders/1O6ZimdPrpby5opBy8WtavAr6X7Hp2xdU?usp=drive_link'
 output = 'chest_xray'
 gdown.download(data_dir, output, quiet=False)
 
