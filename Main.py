@@ -42,7 +42,7 @@ data_transforms = {
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('gcsfs', type=FilesConnection)
-data_dir = conn.read("Diagnose-Images/chest_xray", input_format="jpeg", ttl=600)
+data_dir = conn.read("Diagnose-Images/chest_xray", input_format="jpg", ttl=600)
 
 # Print results.
 for row in df.itertuples():
