@@ -15,6 +15,7 @@ from PIL import Image
 from tempfile import TemporaryDirectory
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
+from st_files_connection import FilesConnection
 
 
 
@@ -36,7 +37,7 @@ data_transforms = {
     ]),
 }
 #st.title("Sistema de Classificação Diagnóstico")
-from st_files_connection import FilesConnection
+
 
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
