@@ -226,7 +226,7 @@ exp_lr_scheduler = lr_scheduler.StepLR(optimizer_conv, step_size=7, gamma=0.1)
 
 visualize_model(model_conv)
 
-st.pyplot()
+st.pyplot(visualize_model)
 #st.pyplot(ioff)
 st.pyplot()
 
