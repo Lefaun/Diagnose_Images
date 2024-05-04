@@ -262,4 +262,6 @@ with col1:
 with col2:
     st.image(uploaded_file)
     
-st.pyplot(ioff)
+st.pyplot(visualize_model_predictions(
+        model_conv, img_path=(uploaded_file)
+    )
