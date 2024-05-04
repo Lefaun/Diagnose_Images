@@ -241,7 +241,7 @@ def visualize_model_predictions(model,img_path):
     was_training = model.training
     model.eval()
 
-    img = Image.open(img_path)
+    img = st.open(img_path)
     img = data_transforms['val'](img)
     img = img.unsqueeze(0)
     img = img.to(device)
