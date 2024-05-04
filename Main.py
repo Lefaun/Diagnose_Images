@@ -13,9 +13,15 @@ import time
 import os
 from PIL import Image
 from tempfile import TemporaryDirectory
-import googleapiclient.discovery import build
 from google.oauth2 import service_account
+from googleapiclient.discovery import build
 
+credendials = service_account.Credentials.from_service_account_info(
+
+    st.secrets["20893b32e583ddbe9eaa552bb2df7bb8b5fec951"]
+)
+
+drive_service = build('drive', 'v3', credentials=credentials)
 
 cudnn.benchmark = True
 plt.ion()   # interactive mode
