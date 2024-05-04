@@ -264,4 +264,4 @@ with col2:
     
 st.pyplot(visualize_model_predictions(
         model_conv, img_path=(uploaded_file)
-    )
+    ))
