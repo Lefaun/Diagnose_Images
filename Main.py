@@ -149,11 +149,11 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
                     best_acc = epoch_acc
                     torch.save(model.state_dict(), best_model_params_path)
 
-            print()
+            st.write()
 
         time_elapsed = time.time() - since
-        print(f'Training complete in {time_elapsed // 60:.0f}m {time_elapsed % 60:.0f}s')
-        print(f'Best val Acc: {best_acc:4f}')
+        st.write(f'Training complete in {time_elapsed // 60:.0f}m {time_elapsed % 60:.0f}s')
+        st.write(f'Best val Acc: {best_acc:4f}')
 
         # load best model weights
         model.load_state_dict(torch.load(best_model_params_path))
@@ -203,7 +203,7 @@ def visualize_model(model, num_images=6):
         st.header("Visualização de Modelos")
         visualize_model(model_ft)
         ########################
-        st.pyplot(fig)
+        st.pyplot(visualize_model(model_ft))
 
 
 
