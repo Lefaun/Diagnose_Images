@@ -13,9 +13,7 @@ import time
 import os
 from PIL import Image
 from tempfile import TemporaryDirectory
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from st_files_connection import FilesConnection
+
 
 
 
@@ -36,17 +34,26 @@ data_transforms = {
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
 }
-#st.title("Sistema de Classificação Diagnóstico")
+st.title("Sistema de Classificação Diagnóstico")
 
+data_dir = '/content/drive/MyDrive/chest_xray'
+image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
+                                          data_transforms[x])
+                  for x in ['train', 'val']}
+dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=4,
+                                             shuffle=True, num_workers=4)
+              for x in ['train', 'val']}
+dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
+class_names = image_datasets['train'].classes
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('gcsfs', type=FilesConnection)
 data_dir = conn.read("subtle-harmony-422215-v3/chest_xray", input_format="jpeg", ttl=600)
 
 # Print results.
-for row in df.itertuples():
-    st.write(f"{row.Owner} has a :{row.Pet}:")
+
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
