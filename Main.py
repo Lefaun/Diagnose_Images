@@ -73,9 +73,9 @@ def imshow(inp, title=None):
     std = np.array([0.229, 0.224, 0.225])
     inp = std * inp + mean
     inp = np.clip(inp, 0, 1)
-    plt.imshow(inp)
+    st.pyplot(imshow(inp))
     if title is not None:
-        plt.title(title)
+        st.pyplot(title(title))
     plt.pause(0.001)  # pause a bit so that plots are updated
 
 st.header("Image Classification")
@@ -201,6 +201,8 @@ def visualize_model(model, num_images=6):
         exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
         st.header("Visualização de Modelos")
         visualize_model(model_ft)
+        ########################
+        st.pyplot(fig)
 
 
 
