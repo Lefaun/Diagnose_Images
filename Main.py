@@ -82,7 +82,8 @@ def imshow(inp, title=None):
 st.header("Image Classification")
 # Get a batch of training data
 inputs, classes = next(iter(dataloaders['train']))
-
+##################################################
+st.pyplot(imshow(inputs, classes))
 st.header("Imagens Classificadas")
 # Make a grid from batch
 out = torchvision.utils.make_grid(inputs)
