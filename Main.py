@@ -261,5 +261,4 @@ with col1:
 with col2:
     st.image(uploaded_file)
     
-st.pyplot(fig)
-st.pyplot(show)
+st.pyplot(img)
