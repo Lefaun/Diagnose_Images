@@ -36,7 +36,7 @@ data_transforms = {
 }
 st.title("Sistema de Classificação Diagnóstico")
 
-data_dir = '/content/drive/MyDrive/chest_xray'
+data_dir = '/chest_xray'
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
@@ -49,8 +49,8 @@ class_names = image_datasets['train'].classes
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
-conn = st.connection('gcsfs', type=FilesConnection)
-data_dir = conn.read("subtle-harmony-422215-v3/chest_xray", input_format="jpeg", ttl=600)
+#conn = st.connection('gcsfs', type=FilesConnection)
+#data_dir = conn.read("subtle-harmony-422215-v3/chest_xray", input_format="jpeg", ttl=600)
 
 # Print results.
 
