@@ -86,9 +86,7 @@ st.header("Imagens Classificadas")
 # Make a grid from batch
 out = torchvision.utils.make_grid(inputs)
 
-imshow(out, title=[class_names[x] for x in classes])
-###################################################
-st.pyplot(out)
+st.pyplot(out, title=[class_names[x] for x in classes])
 
 def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
     since = time.time()
