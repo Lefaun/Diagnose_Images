@@ -16,12 +16,7 @@ from tempfile import TemporaryDirectory
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
-credendials = service_account.Credentials.from_service_account_info(
 
-    st.secrets("20893b32e583ddbe9eaa552bb2df7bb8b5fec951")
-)
-
-drive_service = build('drive', 'v3', credentials=credentials)
 
 cudnn.benchmark = True
 plt.ion()   # interactive mode
@@ -41,10 +36,16 @@ data_transforms = {
     ]),
 }
 #st.title("Sistema de Classificação Diagnóstico")
-data_dir = 'https://drive.google.com/drive/folders/1O6ZimdPrpby5opBy8WtavAr6X7Hp2xdU?usp=drive_link'
-output = 'chest_xray'
-gdown.download(data_dir, output, quiet=False)
+from st_files_connection import FilesConnection
 
+# Create connection object and retrieve file contents.
+# Specify input format is a csv and to cache the result for 600 seconds.
+conn = st.connection('gcs', type=FilesConnection)
+data_dir = conn.read("Diagnose-Images/chest_xray", input_format="jpeg", ttl=600)
+
+# Print results.
+for row in df.itertuples():
+    st.write(f"{row.Owner} has a :{row.Pet}:")
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
