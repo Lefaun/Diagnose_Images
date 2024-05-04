@@ -226,9 +226,9 @@ exp_lr_scheduler = lr_scheduler.StepLR(optimizer_conv, step_size=7, gamma=0.1)
 
 visualize_model(model_conv)
 
-st.pyplot(fig)
+st.pyplot()
 #st.pyplot(ioff)
-st.pyplot(fig)
+st.pyplot()
 
 def visualize_model_predictions(model,img_path):
     was_training = model.training
