@@ -254,7 +254,7 @@ with col1:
     st.header("Faça o Upload da Imagem de Diagnóstico")
     uploaded_file = st.file_uploader("Escolha uma imagem...", type=["jpg", "jpeg", "png", 'gif'])
     visualize_model_predictions(
-        model_conv, img_path=image.load_img(uploaded_file, target_size=(224, 224))
+        model_conv, img_path=load_img(uploaded_file, target_size=(224, 224))
     )
 
 with col2:
