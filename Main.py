@@ -167,6 +167,8 @@ def visualize_model(model, num_images=6):
     model.eval()
     images_so_far = 0
     fig = plt.figure()
+    ##################
+    st.pyplot(fig)
 
     with torch.no_grad():
         for i, (inputs, labels) in enumerate(dataloaders['val']):
@@ -203,10 +205,11 @@ def visualize_model(model, num_images=6):
 
         # Decay LR by a factor of 0.1 every 7 epochs
         exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
-        st.header("Visualização de Modelos")
-        st.pyplot(visualize_model(model_ft))
-        ########################
-        st.pyplot(visualize_model(model_ft))
+
+st.header("Visualização de Modelos")
+st.pyplot(visualize_model(model_ft))
+########################
+st.pyplot(visualize_model(model_ft))
 
 
 
@@ -237,6 +240,7 @@ visualize_model(model_conv)
 def visualize_model_predictions(model,img_path):
     was_training = model.training
     model.eval()
+
     img = Image.open(img_path)
     img = data_transforms['val'](img)
     img = img.unsqueeze(0)
@@ -252,6 +256,7 @@ def visualize_model_predictions(model,img_path):
         imshow(img.cpu().data[0])
 
         model.train(mode=was_training)
+        
 col1, col2 = st.columns(2)
 
 with col1:
