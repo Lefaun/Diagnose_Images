@@ -18,7 +18,7 @@ from googleapiclient.discovery import build
 
 credendials = service_account.Credentials.from_service_account_info(
 
-    st.secrets["20893b32e583ddbe9eaa552bb2df7bb8b5fec951"]
+    st.secrets("20893b32e583ddbe9eaa552bb2df7bb8b5fec951")
 )
 
 drive_service = build('drive', 'v3', credentials=credentials)
