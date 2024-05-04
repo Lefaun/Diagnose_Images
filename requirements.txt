@@ -61,3 +61,5 @@ google-api-python-client==2.127.0
 google-auth==2.29.0
 google-auth-httplib2==0.2.0
 googleapis-common-protos==1.63.0
+gcsfs==x.x.x
+st-files-connection
