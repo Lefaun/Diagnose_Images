@@ -62,3 +62,4 @@ google-auth==2.29.0
 google-auth-httplib2==0.2.0
 googleapis-common-protos==1.63.0
 st-files-connection
+gcsfs==2024.3.1
