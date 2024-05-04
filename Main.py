@@ -13,7 +13,8 @@ import time
 import os
 from PIL import Image
 from tempfile import TemporaryDirectory
-x-goog-project-id="subtle-harmony-422215-v3"
+import googleapiclient.discovery import build
+from google.oauth2 import service_account
 
 
 cudnn.benchmark = True
