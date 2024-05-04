@@ -226,7 +226,8 @@ exp_lr_scheduler = lr_scheduler.StepLR(optimizer_conv, step_size=7, gamma=0.1)
 
 visualize_model(model_conv)
 
-st.pyplot(ioff)
+st.pyplot(model_conv)
+#st.pyplot(ioff)
 st.pyplot(show)
 
 def visualize_model_predictions(model,img_path):
@@ -260,5 +261,5 @@ with col1:
 with col2:
     st.image(uploaded_file)
     
-pst.pyplot(ioff)
+pst.pyplot(fig)
 st.pyplot(show)
