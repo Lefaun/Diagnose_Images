@@ -90,7 +90,7 @@ st.header("Imagens Classificadas")
 out = torchvision.utils.make_grid(inputs)
 
 imshow(out, title=[class_names[x] for x in classes])
-#st.pyplot(imshow(inputs))
+st.pyplot(imshow(out))
 
 st.title("Imagens de Rastreio")
 def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
@@ -163,7 +163,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
         # load best model weights
         model.load_state_dict(torch.load(best_model_params_path))
     return model
-    st.pyplot(model)
+    st.pyplot(imshow(model))
 
 def visualize_model(model, num_images=6):
     was_training = model.training
