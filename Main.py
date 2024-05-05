@@ -207,10 +207,10 @@ def visualize_model(model, num_images=6):
         # Decay LR by a factor of 0.1 every 7 epochs
         exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
 
-        st.header("Visualização de Modelos")
-        st.pyplot(visualize_model(model_ft))
-        ########################
-        st.pyplot(visualize_model(model_ft))
+    st.header("Visualização de Modelos")
+    st.pyplot(visualize_model(model_ft))
+    ########################
+    st.pyplot(visualize_model(model_ft))
         
 
 
