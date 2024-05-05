@@ -146,22 +146,23 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
                 epoch_loss = running_loss / dataset_sizes[phase]
                 epoch_acc = running_corrects.double() / dataset_sizes[phase]
 ######################################################################################
-                st.write(f'{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
+                print(f'{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
 
                 # deep copy the model
                 if phase == 'val' and epoch_acc > best_acc:
                     best_acc = epoch_acc
                     torch.save(model.state_dict(), best_model_params_path)
 
-            st.write()
+            print()
 
         time_elapsed = time.time() - since
-        st.write(f'Training complete in {time_elapsed // 60:.0f}m {time_elapsed % 60:.0f}s')
-        st.write(f'Best val Acc: {best_acc:4f}')
+        print(f'Training complete in {time_elapsed // 60:.0f}m {time_elapsed % 60:.0f}s')
+        print(f'Best val Acc: {best_acc:4f}')
 
         # load best model weights
         model.load_state_dict(torch.load(best_model_params_path))
     return model
+    st.pyplot(model)
 
 def visualize_model(model, num_images=6):
     was_training = model.training
