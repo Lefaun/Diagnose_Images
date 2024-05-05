@@ -80,17 +80,17 @@ def imshow(inp, title=None):
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
 
-st.header("Image Classification")
+
 # Get a batch of training data
-inputs, classes = next(iter(dataloaders['train']))
-##################################################
-
-st.header("Imagens Classificadas")
-# Make a grid from batch
-out = torchvision.utils.make_grid(inputs)
-
-imshow(out, title=[class_names[x] for x in classes])
-st.pyplot(imshow(out))
+    inputs, classes = next(iter(dataloaders['train']))
+    ##################################################
+    
+    st.header("Imagens Classificadas")
+    # Make a grid from batch
+    out = torchvision.utils.make_grid(inputs)
+    
+    imshow(out, title=[class_names[x] for x in classes])
+    st.pyplot(imshow(out))
 
 def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
     since = time.time()
